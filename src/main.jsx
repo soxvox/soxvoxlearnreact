@@ -8,36 +8,30 @@ const reactRoot = createRoot(root);
 function renderMenu(menu) {
   return (
     <>
-      <h3>
-        Меню
-      </h3>
+      <h3>Меню</h3>
       <ul>
-      {menu.map((data) => (
-        <li key={data.id}>
-          {data.name}
-        </li>
-      ))}
+        {menu.map((data) => (
+          <li key={data.id}>{data.name}</li>
+        ))}
       </ul>
     </>
   );
-};
+}
 
 function renderReviews(reviews) {
   return (
     <>
-      <h3>
-        Отзывы
-      </h3>
+      <h3>Отзывы</h3>
       <ul>
-      {reviews.map((data) => (
-        <li key={data.id}>
-          {data.user}: {data.text}
-        </li>
-      ))}
+        {reviews.map((data) => (
+          <li key={data.id}>
+            {data.user}: {data.text}
+          </li>
+        ))}
       </ul>
     </>
   );
-};
+}
 
 function renderRestaurant(restaurant) {
   return (
@@ -47,10 +41,10 @@ function renderRestaurant(restaurant) {
       {renderReviews(restaurant.reviews)}
     </div>
   );
-};
+}
 
 reactRoot.render(
-  <ul className='someClass' style={{ color: "red" }}>
+  <ul className="someClass" style={{ color: "red" }}>
     {restaurants.map((data) => renderRestaurant(data))}
   </ul>
 );
