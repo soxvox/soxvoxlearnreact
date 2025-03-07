@@ -43,8 +43,4 @@ function renderRestaurant(restaurant) {
   );
 }
 
-reactRoot.render(
-  <ul className="someClass" style={{ color: "red" }}>
-    {restaurants.map((data) => renderRestaurant(data))}
-  </ul>
-);
+reactRoot.render(restaurants.map((data) => renderRestaurant(data)));
