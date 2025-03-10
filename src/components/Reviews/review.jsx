@@ -1,7 +1,8 @@
 export const Review = ({ review }) => {
+  const { id, user, rating, text } = review;
   return (
-    <li key={review.id}>
-      {review.user} ({review.rating}): {review.text}
+    <li key={id}>
+      {user} ({rating}): {text}
     </li>
   );
 };

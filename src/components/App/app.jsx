@@ -1,13 +1,11 @@
 import { Layout } from "../Layout/layout";
 import { restaurants } from "../../../materials/mock";
-import { Restaurant } from "../Restaurant/restaurant";
+import { Tabs } from "../Tabs/tabs";
 
 export const App = ({ title }) => {
   return (
     <Layout title={title}>
-      {restaurants.map((restaurant) => (
-        <Restaurant key={restaurant.id} restaurant={restaurant} />
-      ))}
+      <Tabs restaurants={restaurants} />
     </Layout>
   );
 };
