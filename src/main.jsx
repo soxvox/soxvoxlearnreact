@@ -10,8 +10,8 @@ function renderMenu(menu) {
     <>
       <h3>Меню</h3>
       <ul>
-        {menu.map((data) => (
-          <li key={data.id}>{data.name}</li>
+        {menu.map(({ id, name }) => (
+          <li key={id}>{name}</li>
         ))}
       </ul>
     </>
@@ -23,9 +23,9 @@ function renderReviews(reviews) {
     <>
       <h3>Отзывы</h3>
       <ul>
-        {reviews.map((data) => (
-          <li key={data.id}>
-            {data.user}: {data.text}
+        {reviews.map(({ id, user, text, rating }) => (
+          <li key={id}>
+            {user} ({rating}): {text}
           </li>
         ))}
       </ul>
@@ -36,7 +36,7 @@ function renderReviews(reviews) {
 function renderRestaurant(restaurant) {
   return (
     <div key={restaurant.id}>
-      <h1>{restaurant.name}</h1>
+      <h2>{restaurant.name}</h2>
       {renderMenu(restaurant.menu)}
       {renderReviews(restaurant.reviews)}
     </div>
