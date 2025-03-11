@@ -1,6 +1,6 @@
 import { Counter } from "../Count/counter";
 
-export const Dish = ({ dish }) => {
+export const DishListItem = ({ dish }) => {
   return (
     <li key={dish.id}>
       {dish.name}

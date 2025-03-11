@@ -1,24 +1,24 @@
 import { useState } from "react";
-import { Tab } from "./tab";
-import { Container } from "./container";
+import { TabListItem } from "./tab-list-item";
+import { Restaurant } from "../Restaurant/restaurant";
 
-export const Tabs = ({ restaurants }) => {
+export const RestaurantList = ({ restaurants }) => {
   const [activeRestaurant, setActiveRestaurant] = useState(null);
 
   return (
     <>
       <ul>
         {restaurants.map((restaurant) => (
-          <Tab
+          <TabListItem
             key={restaurant.id}
             onClick={() => setActiveRestaurant(restaurant)}
             active={activeRestaurant && restaurant.id === activeRestaurant.id}
           >
             {restaurant.name}
-          </Tab>
+          </TabListItem>
         ))}
       </ul>
-      {activeRestaurant && <Container restaurant={activeRestaurant} />}
+      {activeRestaurant && <Restaurant restaurant={activeRestaurant} />}
     </>
   );
 };

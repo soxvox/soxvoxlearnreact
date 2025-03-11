@@ -1,4 +1,4 @@
-export const Tab = ({ children, onClick, active }) => {
+export const TabListItem = ({ children, onClick, active }) => {
   return (
     <li
       style={{
@@ -8,9 +8,13 @@ export const Tab = ({ children, onClick, active }) => {
         display: "inline",
         backgroundColor: active ? "#FFFFFF" : "#DDDDDD",
       }}
-      onClick={onClick}
     >
-      {children}
+      <button
+        onClick={onClick}
+        style={{ border: "none", backgroundColor: "transparent" }}
+      >
+        {children}
+      </button>
     </li>
   );
 };

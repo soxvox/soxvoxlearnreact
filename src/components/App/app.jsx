@@ -1,11 +1,11 @@
 import { Layout } from "../Layout/layout";
 import { restaurants } from "../../../materials/mock";
-import { Tabs } from "../Tabs/tabs";
+import { RestaurantList } from "../Tabs/restaurant-list";
 
 export const App = ({ title }) => {
   return (
     <Layout title={title}>
-      <Tabs restaurants={restaurants} />
+      <RestaurantList restaurants={restaurants} />
     </Layout>
   );
 };

@@ -1,4 +1,4 @@
-export const Review = ({ review }) => {
+export const ReviewListItem = ({ review }) => {
   const { id, user, rating, text } = review;
   return (
     <li key={id}>
