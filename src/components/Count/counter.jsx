@@ -1,17 +1,9 @@
-import { useCount } from "./use-count";
-
-export const Counter = ({ min = 0, max = 5, defaultValue = 0 }) => {
-  const { count, increment, decrement } = useCount(defaultValue);
-
+export const Counter = ({ count, increment, decrement }) => {
   return (
     <div>
-      <button onClick={decrement} disabled={count < min + 1}>
-        -
-      </button>
+      <button onClick={decrement}>-</button>
       {count}
-      <button onClick={increment} disabled={count > max - 1}>
-        +
-      </button>
+      <button onClick={increment}>+</button>
     </div>
   );
 };
