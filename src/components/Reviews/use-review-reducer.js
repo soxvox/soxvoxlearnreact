@@ -1,4 +1,4 @@
-import { useReducer } from "react";
+import { useReducer, useCallback } from "react";
 
 const DEFAULT_FORM_VALUE = {
   name: "",
@@ -38,10 +38,22 @@ const reducer = (state, { type, payload }) => {
 export const useReviewReducer = () => {
   const [form, dispatch] = useReducer(reducer, DEFAULT_FORM_VALUE);
 
-  const setName = (name) => dispatch({ type: SET_NAME_ACTION, payload: name });
-  const setText = (text) => dispatch({ type: SET_TEXT_ACTION, payload: text });
-  const setRate = (rate) => dispatch({ type: SET_RATE_ACTION, payload: rate });
-  const setNew = () => dispatch({ type: SET_NEW_ACTION, payload: null });
+  const setName = useCallback(
+    (name) => dispatch({ type: SET_NAME_ACTION, payload: name }),
+    []
+  );
+  const setText = useCallback(
+    (text) => dispatch({ type: SET_TEXT_ACTION, payload: text }),
+    []
+  );
+  const setRate = useCallback(
+    (rate) => dispatch({ type: SET_RATE_ACTION, payload: rate }),
+    []
+  );
+  const setNew = useCallback(
+    () => dispatch({ type: SET_NEW_ACTION, payload: null }),
+    []
+  );
 
   return { form, setName, setText, setRate, setNew };
 };
