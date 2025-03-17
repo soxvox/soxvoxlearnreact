@@ -9,7 +9,7 @@ export const DishListItem = ({ dish }) => {
   });
 
   return (
-    <li key={dish.id}>
+    <li key={dish.id} style={{ paddingBottom: "300px" }}>
       {dish.name}
       <Counter count={count} increment={increment} decrement={decrement} />
     </li>
