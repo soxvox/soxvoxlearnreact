@@ -38,5 +38,10 @@ const reducer = (state, { type, payload }) => {
 export const useReviewReducer = () => {
   const [form, dispatch] = useReducer(reducer, DEFAULT_FORM_VALUE);
 
-  return { form, dispatch };
+  const setName = (name) => dispatch({ type: SET_NAME_ACTION, payload: name });
+  const setText = (text) => dispatch({ type: SET_TEXT_ACTION, payload: text });
+  const setRate = (rate) => dispatch({ type: SET_RATE_ACTION, payload: rate });
+  const setNew = () => dispatch({ type: SET_NEW_ACTION, payload: null });
+
+  return { form, setName, setText, setRate, setNew };
 };
