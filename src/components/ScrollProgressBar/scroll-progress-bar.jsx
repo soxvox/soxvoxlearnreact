@@ -27,6 +27,6 @@ export const ScrollProgressBar = () => {
         width: `${scrollPositionPercent}%`,
         height: "2px",
       }}
-    ></div>
+    />
   );
 };
