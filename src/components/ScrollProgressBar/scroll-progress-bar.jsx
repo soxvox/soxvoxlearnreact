@@ -1,17 +1,19 @@
 import { useState, useEffect } from "react";
 
+const getPosition = () => {
+  return parseInt(
+    (window.scrollY /
+      (document.documentElement.scrollHeight - window.innerHeight)) *
+      100
+  );
+};
+
 export const ScrollProgressBar = () => {
   const [scrollPositionPercent, setScrollPositionPercent] = useState(0);
 
   useEffect(() => {
     const onScroll = () => {
-      setScrollPositionPercent(
-        parseInt(
-          (window.scrollY /
-            (document.documentElement.scrollHeight - window.innerHeight)) *
-            100
-        )
-      );
+      setScrollPositionPercent(getPosition());
     };
 
     window.addEventListener("scroll", onScroll);
