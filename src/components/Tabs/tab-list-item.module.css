@@ -1,0 +1,15 @@
+.tabListItem {
+  padding: 5px;
+  margin-right: 1px;
+  border: 1px solid black;
+  display: inline;
+}
+
+.tabListItem:hover {
+  background-color: aqua;
+}
+
+.tabListItem > button {
+  border: none;
+  background-color: transparent;
+}
