@@ -1,5 +1,6 @@
 import { useReviewReducer } from "./use-review-reducer";
 import { Counter } from "../Count/counter";
+import styles from "./review-form.module.css";
 
 export const ReviewForm = () => {
   const { form, setName, setText, setRate, setNew } = useReviewReducer();
@@ -7,7 +8,7 @@ export const ReviewForm = () => {
   const { name, text, rate } = form;
 
   return (
-    <div style={{ paddingTop: "300px" }}>
+    <div className={styles.form}>
       <div>Добавить отзыв</div>
       <div>
         <span>Name</span>

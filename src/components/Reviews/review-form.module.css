@@ -1,0 +1,8 @@
+.form {
+  padding: 150px 30px;
+}
+
+.form > div {
+  display: inline-block;
+  margin: 1px 10px;
+}

@@ -1,0 +1,8 @@
+.dishListItem {
+  padding-bottom: 300px;
+}
+
+.dishListItem > div {
+  display: inline-block;
+  margin: 1px 10px;
+}
