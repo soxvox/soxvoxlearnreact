@@ -7,7 +7,7 @@ export const ReviewForm = () => {
   const { name, text, rate } = form;
 
   return (
-    <div>
+    <div style={{ paddingTop: "300px" }}>
       <div>Добавить отзыв</div>
       <div>
         <span>Name</span>
