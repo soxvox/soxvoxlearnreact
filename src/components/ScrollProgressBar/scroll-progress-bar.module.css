@@ -1,0 +1,16 @@
+.light {
+  background-color: green;
+  color: black;
+  border: 1px solid black;
+}
+
+.dark {
+  background-color: red;
+  color: white;
+  border: 1px solid white;
+}
+
+.default {
+  height: 5px;
+  border: 0;
+}

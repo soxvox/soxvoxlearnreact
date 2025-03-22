@@ -16,8 +16,8 @@ export const Button = ({
     <button
       disabled={disabled}
       onClick={onClick}
-      className={classNames(styles.button, className, {
-        [styles.default]: colorViewVariant === "default" || !colorViewVariant,
+      className={classNames(styles.root, className, {
+        [styles.default]: colorViewVariant === "default",
         [styles.active]: colorViewVariant === "active",
         [styles.light]: theme === "light",
         [styles.dark]: theme === "dark",

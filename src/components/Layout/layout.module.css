@@ -1,9 +1,3 @@
-.header {
-  position: fixed;
-  width: 100%;
-  background-color: silver;
-}
-
 .content {
   padding: 100px 10px 10px;
 }
