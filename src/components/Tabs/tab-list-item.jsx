@@ -1,14 +1,14 @@
 import styles from "./tab-list-item.module.css";
+import { Button } from "../Button/button";
 
 export const TabListItem = ({ children, onClick, active }) => {
   return (
-    <li
-      style={{
-        backgroundColor: active ? "#FFFFFF" : "#DDDDDD",
-      }}
+    <Button
+      onClick={onClick}
       className={styles.tabListItem}
+      colorViewVariant={active ? "active" : undefined}
     >
-      <button onClick={onClick}>{children}</button>
-    </li>
+      {children}
+    </Button>
   );
 };

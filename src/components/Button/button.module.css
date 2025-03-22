@@ -1,0 +1,30 @@
+.root {
+  padding: 0;
+  font-size: 18px;
+}
+
+.light {
+  background-color: white;
+  color: black;
+  border: 1px solid black;
+}
+
+.dark {
+  background-color: black;
+  color: white;
+  border: 1px solid white;
+}
+
+.default {
+  min-width: 25px;
+}
+
+.active {
+  background-color: greenyellow;
+  color: black;
+}
+
+.default:hover,
+.active:hover {
+  background-color: aqua;
+}

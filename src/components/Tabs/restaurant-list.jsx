@@ -7,17 +7,15 @@ export const RestaurantList = ({ restaurants }) => {
 
   return (
     <>
-      <ul>
-        {restaurants.map((restaurant) => (
-          <TabListItem
-            key={restaurant.id}
-            onClick={() => setActiveRestaurant(restaurant)}
-            active={activeRestaurant && restaurant.id === activeRestaurant.id}
-          >
-            {restaurant.name}
-          </TabListItem>
-        ))}
-      </ul>
+      {restaurants.map((restaurant) => (
+        <TabListItem
+          key={restaurant.id}
+          onClick={() => setActiveRestaurant(restaurant)}
+          active={activeRestaurant && restaurant.id === activeRestaurant.id}
+        >
+          {restaurant.name}
+        </TabListItem>
+      ))}
       {activeRestaurant && <Restaurant restaurant={activeRestaurant} />}
     </>
   );
