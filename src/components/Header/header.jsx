@@ -4,6 +4,7 @@ import { ToggleTheme } from "../ToggleTheme/toggle-theme";
 import classNames from "classnames";
 import { ThemeContext } from "../ThemeContext";
 import { use } from "react";
+import { UserAuth } from "../UserAuth/user-auth";
 
 export const Header = ({ title }) => {
   const { theme } = use(ThemeContext);
@@ -18,6 +19,7 @@ export const Header = ({ title }) => {
       <h1>
         {title}
         <ToggleTheme />
+        <UserAuth />
       </h1>
       <ScrollProgressBar />
     </header>
