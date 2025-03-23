@@ -13,7 +13,7 @@ export const DishListItem = ({ dish }) => {
   });
 
   return (
-    <li key={dish.id} className={styles.dishListItem}>
+    <li className={styles.dishListItem}>
       <div>{dish.name}</div>
       {user && (
         <Counter count={count} increment={increment} decrement={decrement} />

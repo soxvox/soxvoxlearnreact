@@ -12,3 +12,7 @@
   background-color: black;
   color: white;
 }
+
+.h1 {
+  display: inline-block;
+}

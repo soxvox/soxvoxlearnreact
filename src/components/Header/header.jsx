@@ -16,11 +16,11 @@ export const Header = ({ title }) => {
         [styles.dark]: theme === "dark",
       })}
     >
-      <h1>
-        {title}
+      <div>
+        <h1 className={styles.h1}>{title}</h1>
         <ToggleTheme />
         <UserAuth />
-      </h1>
+      </div>
       <ScrollProgressBar />
     </header>
   );
