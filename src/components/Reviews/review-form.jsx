@@ -3,6 +3,7 @@ import { Counter } from "../Count/counter";
 import styles from "./review-form.module.css";
 import { use } from "react";
 import { UserContext } from "../UserContext";
+import { Button } from "../Button/button";
 
 export const ReviewForm = () => {
   const { form, setName, setText, setRate, clearForm } = useReviewReducer();
@@ -34,7 +35,7 @@ export const ReviewForm = () => {
         />
       </div>
       <div>
-        <button onClick={clearForm}>Clear</button>
+        <Button onClick={clearForm}>Clear</Button>
       </div>
     </div>
   );
