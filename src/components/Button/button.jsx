@@ -8,6 +8,7 @@ export const Button = ({
   disabled,
   onClick,
   colorViewVariant = "default",
+  sizeViewVariant = "none",
   className,
 }) => {
   const { theme } = use(ThemeContext);
@@ -21,6 +22,7 @@ export const Button = ({
         [styles.active]: colorViewVariant === "active",
         [styles.light]: theme === "light",
         [styles.dark]: theme === "dark",
+        [styles.padding5]: sizeViewVariant === "padding5",
       })}
     >
       {children}

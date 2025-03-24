@@ -27,3 +27,7 @@
 .active:hover {
   background-color: aqua;
 }
+
+.padding5 {
+  padding: 5px;
+}
