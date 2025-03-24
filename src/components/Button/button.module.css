@@ -6,12 +6,18 @@
   background-color: white;
   color: black;
   border: 1px solid black;
+  &:hover {
+    background-color: aqua;
+  }
 }
 
 .dark {
   background-color: black;
   color: white;
   border: 1px solid white;
+  &:hover {
+    background-color: darkcyan;
+  }
 }
 
 .default {
@@ -21,11 +27,6 @@
 .active {
   background-color: greenyellow;
   color: black;
-}
-
-.default:hover,
-.active:hover {
-  background-color: aqua;
 }
 
 .padding5 {
