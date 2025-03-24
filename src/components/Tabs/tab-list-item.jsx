@@ -1,20 +1,15 @@
+import styles from "./tab-list-item.module.css";
+import { Button } from "../Button/button";
+
 export const TabListItem = ({ children, onClick, active }) => {
   return (
-    <li
-      style={{
-        padding: "5px",
-        marginRight: "1px",
-        border: "1px solid black",
-        display: "inline",
-        backgroundColor: active ? "#FFFFFF" : "#DDDDDD",
-      }}
+    <Button
+      onClick={onClick}
+      className={styles.tabListItem}
+      colorViewVariant={active ? "active" : undefined}
+      sizeViewVariant="padding5"
     >
-      <button
-        onClick={onClick}
-        style={{ border: "none", backgroundColor: "transparent" }}
-      >
-        {children}
-      </button>
-    </li>
+      {children}
+    </Button>
   );
 };

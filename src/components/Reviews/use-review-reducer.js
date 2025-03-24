@@ -50,10 +50,10 @@ export const useReviewReducer = () => {
     (rate) => dispatch({ type: SET_RATE_ACTION, payload: rate }),
     []
   );
-  const setNew = useCallback(
+  const clearForm = useCallback(
     () => dispatch({ type: SET_NEW_ACTION, payload: null }),
     []
   );
 
-  return { form, setName, setText, setRate, setNew };
+  return { form, setName, setText, setRate, clearForm };
 };

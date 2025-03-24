@@ -1,13 +1,21 @@
 import { useReviewReducer } from "./use-review-reducer";
 import { Counter } from "../Count/counter";
+import styles from "./review-form.module.css";
+import { use } from "react";
+import { UserContext } from "../UserContext";
 
 export const ReviewForm = () => {
-  const { form, setName, setText, setRate, setNew } = useReviewReducer();
+  const { form, setName, setText, setRate, clearForm } = useReviewReducer();
 
   const { name, text, rate } = form;
 
+  const { user } = use(UserContext);
+  if (!user) {
+    return null;
+  }
+
   return (
-    <div style={{ paddingTop: "300px" }}>
+    <div className={styles.form}>
       <div>Добавить отзыв</div>
       <div>
         <span>Name</span>
@@ -26,7 +34,7 @@ export const ReviewForm = () => {
         />
       </div>
       <div>
-        <button onClick={() => setNew()}>Clear</button>
+        <button onClick={clearForm}>Clear</button>
       </div>
     </div>
   );

@@ -1,0 +1,18 @@
+.header {
+  position: fixed;
+  width: 100%;
+}
+
+.light {
+  background-color: silver;
+  color: black;
+}
+
+.dark {
+  background-color: black;
+  color: white;
+}
+
+.h1 {
+  display: inline-block;
+}
