@@ -1,22 +1,31 @@
 import { useState } from "react";
-import { TabListItem } from "./tab-list-item";
-import { Restaurant } from "../Restaurant/restaurant";
+import { useSelector } from "react-redux";
+import { selectRestaurantsIds } from "../../redux/entities/restaurant/slice";
+import { RestaurantContainer } from "../Restaurant/restaurant-container";
+import { RestaurantTabContainer } from "./restaurant-tab-container";
+import { Tabs } from "./tabs";
 
-export const RestaurantList = ({ restaurants }) => {
-  const [activeRestaurant, setActiveRestaurant] = useState(null);
+export const RestaurantList = () => {
+  const restaurantsIds = useSelector(selectRestaurantsIds);
+  const [activeRestaurantId, setActiveRestaurantId] = useState(
+    restaurantsIds[0]
+  );
 
   return (
     <>
-      {restaurants.map((restaurant) => (
-        <TabListItem
-          key={restaurant.id}
-          onClick={() => setActiveRestaurant(restaurant)}
-          active={activeRestaurant && restaurant.id === activeRestaurant.id}
-        >
-          {restaurant.name}
-        </TabListItem>
-      ))}
-      {activeRestaurant && <Restaurant restaurant={activeRestaurant} />}
+      <Tabs>
+        {restaurantsIds.map((id) => (
+          <RestaurantTabContainer
+            key={id}
+            id={id}
+            onClick={() => setActiveRestaurantId(id)}
+            active={id === activeRestaurantId}
+          />
+        ))}
+      </Tabs>
+      {activeRestaurantId && (
+        <RestaurantContainer key={activeRestaurantId} id={activeRestaurantId} />
+      )}
     </>
   );
 };
