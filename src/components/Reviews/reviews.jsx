@@ -1,12 +1,12 @@
-import { ReviewListItem } from "./review-list-item";
+import { ReviewListItemContainer } from "./review-list-item-container";
 
-export const Reviews = ({ reviews }) => {
+export const Reviews = ({ reviewsIds }) => {
   return (
     <>
       <h3>Отзывы</h3>
       <ul>
-        {reviews.map((review) => (
-          <ReviewListItem key={review.id} review={review} />
+        {reviewsIds.map((id) => (
+          <ReviewListItemContainer key={id} id={id} />
         ))}
       </ul>
     </>

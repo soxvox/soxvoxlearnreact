@@ -1,16 +1,21 @@
-import { useState, useCallback } from "react";
+import { useCallback } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  addToCart,
+  removeFromCart,
+  selectAmountByDishId,
+} from "../../redux/entities/cart/slice";
 
-export const useDishCounter = ({ defaultValue = 0, min = 0, max = 5 }) => {
-  const [count, setCount] = useState(defaultValue);
+export const useDishCounter = (id) => {
+  const dispatch = useDispatch();
 
-  const increment = useCallback(
-    () => setCount((value) => Math.min(value + 1, max)),
-    [max]
-  );
+  const count = useSelector((state) => selectAmountByDishId(state, id)) || 0;
+
+  const increment = useCallback(() => dispatch(addToCart(id)), [dispatch, id]);
 
   const decrement = useCallback(
-    () => setCount((value) => Math.max(value - 1, min)),
-    [min]
+    () => dispatch(removeFromCart(id)),
+    [dispatch, id]
   );
 
   return {
