@@ -24,12 +24,6 @@ export const cartSlice = createSlice({
   },
 
   selectors: {
-    selectCartItems: (state) =>
-      Object.keys(state).reduce((acc, id) => {
-        acc.push({ id, amount: state[id] });
-
-        return acc;
-      }, []),
     selectAmountByDishId: (state, id) => state[id],
   },
 });
