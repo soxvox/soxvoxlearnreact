@@ -1,10 +1,8 @@
-import { useParams } from "react-router";
 import { useSelector } from "react-redux";
 import { Menu } from "./menu";
 import { selectRestaurantById } from "../../redux/entities/restaurant/slice";
 
-export const MenuContainer = () => {
-  const { restaurantId } = useParams();
+export const MenuContainer = ({ restaurantId }) => {
   const restaurant = useSelector((state) =>
     selectRestaurantById(state, restaurantId)
   );

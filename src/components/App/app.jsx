@@ -30,7 +30,10 @@ export const App = ({ title }) => {
                 </Route>
                 <Route path="/dish" element={<DishPage />}>
                   <Route path=":dishId" element={<DishPage />} />
-                  <Route path="*" element={<div>not presented</div>} />
+                  <Route
+                    index
+                    element={<Navigate to="/restaurants" replace />}
+                  />
                 </Route>
               </Route>
               <Route path="*" element={<Navigate to="/" replace />} />

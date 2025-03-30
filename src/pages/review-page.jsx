@@ -1,5 +1,8 @@
 import { ReviewsContainer } from "../components/Reviews/reviews-container";
+import { useParams } from "react-router";
 
 export const ReviewPage = () => {
-  return <ReviewsContainer />;
+  const { restaurantId } = useParams();
+
+  return <ReviewsContainer restaurantId={restaurantId} />;
 };

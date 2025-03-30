@@ -6,7 +6,7 @@ export const DishContainer = ({ id }) => {
   const dish = useSelector((state) => selectDishById(state, id));
 
   if (!dish) {
-    return null;
+    return <div>dish not found</div>;
   }
 
   const { name } = dish;

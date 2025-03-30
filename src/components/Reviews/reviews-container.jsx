@@ -3,8 +3,7 @@ import { useSelector } from "react-redux";
 import { Reviews } from "./reviews";
 import { selectRestaurantById } from "../../redux/entities/restaurant/slice";
 
-export const ReviewsContainer = () => {
-  const { restaurantId } = useParams();
+export const ReviewsContainer = ({ restaurantId }) => {
   const restaurant = useSelector((state) =>
     selectRestaurantById(state, restaurantId)
   );
