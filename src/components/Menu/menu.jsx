@@ -1,12 +1,12 @@
-import { DishListItem } from "./dish-list-item";
+import { DishListItemContainer } from "../Menu/dish-list-item-container";
 
-export const Menu = ({ menu }) => {
+export const Menu = ({ menuIds }) => {
   return (
     <>
       <h3>Меню</h3>
       <ul>
-        {menu.map((dish) => (
-          <DishListItem key={dish.id} dish={dish} />
+        {menuIds.map((id) => (
+          <DishListItemContainer key={id} id={id} />
         ))}
       </ul>
     </>
