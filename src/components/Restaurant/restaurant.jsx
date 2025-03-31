@@ -1,16 +1,15 @@
-import { Menu } from "../Menu/menu";
-import { Reviews } from "../Reviews/reviews";
-import { ReviewForm } from "../Reviews/review-form";
+import { Link } from "react-router";
+import { Outlet } from "react-router";
 
 export const Restaurant = (restaurant) => {
-  const { id, name, menuIds, reviewsIds } = restaurant;
+  const { id, name } = restaurant;
 
   return (
     <div key={id}>
       <h2>{name}</h2>
-      {menuIds.length ? <Menu menuIds={menuIds} /> : "empty menu"}
-      {reviewsIds.length ? <Reviews reviewsIds={reviewsIds} /> : "Нет отзывов"}
-      <ReviewForm />
+      <Link to="menu">show menu</Link>
+      <Link to="review">reviews</Link>
+      <Outlet />
     </div>
   );
 };
