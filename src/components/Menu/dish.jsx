@@ -1,16 +1,15 @@
 import { DishCounter } from "./dish-counter";
-import styles from "./dish-list-item.module.css";
 import { use } from "react";
 import { UserContext } from "../UserContext";
 import { Link } from "react-router";
 
-export const DishListItem = (dish) => {
+export const Dish = (dish) => {
   const { user } = use(UserContext);
 
   return (
-    <li className={styles.dishListItem}>
+    <div>
       <Link to={`/dish/${dish.id}`}>{dish.name}</Link>
       {user && <DishCounter dishId={dish.id} />}
-    </li>
+    </div>
   );
 };
