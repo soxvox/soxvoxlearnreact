@@ -1,9 +1,20 @@
 import { useSelector } from "react-redux";
 import { selectRestaurantById } from "../../redux/entities/restaurant/slice";
 import { Restaurant } from "./restaurant";
+import { getRestaurant } from "../../redux/entities/restaurant/get-restaurant";
+import { useRequest } from "../../redux/hooks/use-request";
 
 export const RestaurantContainer = ({ id }) => {
+  const requestStatus = useRequest(getRestaurant, id);
   const restaurant = useSelector((state) => selectRestaurantById(state, id));
+
+  if (requestStatus === "idle" || requestStatus === "pending") {
+    return "loading restaurant...";
+  }
+
+  //if (requestStatus === "rejected") { // requestStatus here is always rejected
+  //  return "error while loading restaurant";
+  //}
 
   if (!restaurant) {
     return null;
@@ -11,5 +22,5 @@ export const RestaurantContainer = ({ id }) => {
 
   const { name, menu, reviews } = restaurant;
 
-  return <Restaurant name={name} reviewsIds={reviews} menuIds={menu} id={id} />;
+  return <Restaurant name={name} />;
 };
