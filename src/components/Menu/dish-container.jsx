@@ -15,10 +15,6 @@ export const DishContainer = ({ id }) => {
     return "loading menu...";
   }
 
-  //if (requestStatus === "rejected") {
-  //  return "error";
-  //}
-  console.log(id);
   if (!dish) {
     return <div>dish not found</div>;
   }

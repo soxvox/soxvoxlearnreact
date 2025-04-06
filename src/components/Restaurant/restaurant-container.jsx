@@ -12,10 +12,6 @@ export const RestaurantContainer = ({ id }) => {
     return "loading restaurant...";
   }
 
-  //if (requestStatus === "rejected") { // requestStatus here is always rejected
-  //  return "error while loading restaurant";
-  //}
-
   if (!restaurant) {
     return null;
   }
