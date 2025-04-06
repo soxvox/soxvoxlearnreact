@@ -1,29 +1,22 @@
 import { useSelector } from "react-redux";
-import { selectDishById } from "../../redux/entities/dish/slice";
 import { Dish } from "./dish";
 import { useNavigate } from "react-router";
 import { Button } from "../Button/button";
-import { getDish } from "../../redux/entities/dish/get-dish";
-import { useRequest } from "../../redux/hooks/use-request";
+import { useGetDishByIdQuery } from "../../redux/services/api";
 
 export const DishContainer = ({ id }) => {
-  const requestStatus = useRequest(getDish, id);
-  const dish = useSelector((state) => selectDishById(state, id));
+  const { data, isLoading } = useGetDishByIdQuery(id);
   const navigate = useNavigate();
 
-  if (requestStatus === "idle" || requestStatus === "pending") {
-    return "loading menu...";
+  if (isLoading) {
+    return "loading dish...";
   }
 
-  //if (requestStatus === "rejected") {
-  //  return "error";
-  //}
-  console.log(id);
-  if (!dish) {
+  if (!data) {
     return <div>dish not found</div>;
   }
 
-  const { name } = dish;
+  const { name } = data;
 
   return (
     <div>

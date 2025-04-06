@@ -4,5 +4,5 @@ import { useParams } from "react-router";
 export const ReviewPage = () => {
   const { restaurantId } = useParams();
 
-  return <ReviewsContainer restaurantId={restaurantId} />;
+  return <ReviewsContainer id={restaurantId} />;
 };

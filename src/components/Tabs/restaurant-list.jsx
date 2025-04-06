@@ -1,28 +1,28 @@
-import { useSelector } from "react-redux";
-import { selectRestaurantsIds } from "../../redux/entities/restaurant/slice";
 import { RestaurantTabContainer } from "./restaurant-tab-container";
 import { Tabs } from "./tabs";
 import { Outlet } from "react-router";
-import { getRestaurants } from "../../redux/entities/restaurant/get-restaurants";
-import { useRequest } from "../../redux/hooks/use-request";
+import { useGetRestaurantsQuery } from "../../redux/services/api";
 
 export const RestaurantList = () => {
-  const requestStatus = useRequest(getRestaurants);
-  const restaurantsIds = useSelector(selectRestaurantsIds);
+  const { data, isLoading, isError } = useGetRestaurantsQuery();
 
-  if (requestStatus === "idle" || requestStatus === "pending") {
+  if (isLoading) {
     return "loading list...";
   }
 
-  if (requestStatus === "rejected") {
+  if (isError) {
     return "error";
   }
 
   return (
     <>
       <Tabs>
-        {restaurantsIds.map((id) => (
-          <RestaurantTabContainer key={id} id={id} />
+        {data.map(({ id, name }) => (
+          <RestaurantTabContainer
+            key={id}
+            to={`/restaurants/${id}`}
+            name={name}
+          />
         ))}
       </Tabs>
       <Outlet />
