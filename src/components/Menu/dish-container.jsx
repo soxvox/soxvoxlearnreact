@@ -1,4 +1,3 @@
-import { useSelector } from "react-redux";
 import { Dish } from "./dish";
 import { useNavigate } from "react-router";
 import { Button } from "../Button/button";
