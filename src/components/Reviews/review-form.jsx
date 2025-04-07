@@ -8,26 +8,24 @@ import { useAddReviewMutation } from "../../redux/services/api";
 
 export const ReviewForm = ({ restaurantId }) => {
   const { form, setName, setText, setRate, clearForm } = useReviewReducer();
-
   const { name, text, rate } = form;
-
+  const { user, userId } = use(UserContext);
   const [addReview, { isLoading: isAddReviewLoading }] = useAddReviewMutation();
 
   const handleSubmit = () => {
     addReview({
       restaurantId: restaurantId,
-      review: { text, rating: rate, user: "hr83h29h9h9u12h9213" },
+      review: { text, rating: rate, userId },
     });
     clearForm();
   };
 
-  const { user } = use(UserContext);
   if (!user) {
     return null;
   }
 
   if (isAddReviewLoading) {
-    return "...loading";
+    return "you review is being sent";
   }
 
   return (
