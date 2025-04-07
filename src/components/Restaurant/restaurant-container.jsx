@@ -1,22 +1,18 @@
-import { useSelector } from "react-redux";
-import { selectRestaurantById } from "../../redux/entities/restaurant/slice";
 import { Restaurant } from "./restaurant";
-import { getRestaurant } from "../../redux/entities/restaurant/get-restaurant";
-import { useRequest } from "../../redux/hooks/use-request";
+import { useGetRestaurantQuery } from "../../redux/services/api";
 
 export const RestaurantContainer = ({ id }) => {
-  const requestStatus = useRequest(getRestaurant, id);
-  const restaurant = useSelector((state) => selectRestaurantById(state, id));
+  const { data, isLoading } = useGetRestaurantQuery(id);
 
-  if (requestStatus === "idle" || requestStatus === "pending") {
+  if (isLoading) {
     return "loading restaurant...";
   }
 
-  if (!restaurant) {
+  if (!data) {
     return null;
   }
 
-  const { name, menu, reviews } = restaurant;
+  const { name, menu, reviews } = data;
 
   return <Restaurant name={name} />;
 };

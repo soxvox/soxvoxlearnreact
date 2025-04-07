@@ -4,15 +4,28 @@ import styles from "./review-form.module.css";
 import { use } from "react";
 import { UserContext } from "../UserContext";
 import { Button } from "../Button/button";
+import { useAddReviewMutation } from "../../redux/services/api";
 
-export const ReviewForm = () => {
+export const ReviewForm = ({ restaurantId }) => {
   const { form, setName, setText, setRate, clearForm } = useReviewReducer();
-
   const { name, text, rate } = form;
+  const { user, userId } = use(UserContext);
+  const [addReview, { isLoading: isAddReviewLoading }] = useAddReviewMutation();
 
-  const { user } = use(UserContext);
+  const handleSubmit = () => {
+    addReview({
+      restaurantId: restaurantId,
+      review: { text, rating: rate, userId },
+    });
+    clearForm();
+  };
+
   if (!user) {
     return null;
+  }
+
+  if (isAddReviewLoading) {
+    return "you review is being sent";
   }
 
   return (
@@ -35,7 +48,9 @@ export const ReviewForm = () => {
         />
       </div>
       <div>
-        <Button onClick={clearForm}>Clear</Button>
+        <Button onClick={handleSubmit} disabled={isAddReviewLoading}>
+          Send
+        </Button>
       </div>
     </div>
   );

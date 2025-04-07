@@ -1,10 +1,11 @@
 import styles from "./review-list-item.module.css";
+import { User } from "../User/user";
 
 export const ReviewListItem = (review) => {
-  const { user, rating, text } = review;
+  const { userId, rating, text } = review;
   return (
     <li className={styles.reviewListItem}>
-      {user} ({rating}): {text}
+      <User id={userId} /> ({rating}): {text}
     </li>
   );
 };
