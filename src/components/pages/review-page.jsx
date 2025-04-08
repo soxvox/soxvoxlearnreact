@@ -1,4 +1,4 @@
-import { ReviewsContainer } from "../components/Reviews/reviews-container";
+import { ReviewsContainer } from "../Reviews/reviews-container";
 import { useParams } from "react-router";
 
 export const ReviewPage = () => {

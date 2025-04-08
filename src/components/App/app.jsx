@@ -6,11 +6,11 @@ import { UserContext } from "../UserContext/user-context";
 import { Provider } from "react-redux";
 import { store } from "../../redux/store";
 import { BrowserRouter, Navigate, Route, Routes } from "react-router";
-import { HomePage } from "../../pages/home-page";
-import { RestaurantPage } from "../../pages/restaurant-page";
-import { DishPage } from "../../pages/dish-page";
-import { MenuPage } from "../../pages/menu-page";
-import { ReviewPage } from "../../pages/review-page";
+import { HomePage } from "../pages/home-page";
+import { RestaurantPage } from "../pages/restaurant-page";
+import { DishPage } from "../pages/dish-page";
+import { MenuPage } from "../pages/menu-page";
+import { ReviewPage } from "../pages/review-page";
 
 export const App = ({ title }) => {
   return (
@@ -44,3 +44,5 @@ export const App = ({ title }) => {
     </Provider>
   );
 };
+
+export default App;
