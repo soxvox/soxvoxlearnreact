@@ -2,7 +2,7 @@ import { ReviewsContainer } from "../../../../components/Reviews/reviews-contain
 
 const ReviewsPage = async ({ params }) => {
   const { restaurantId } = await params;
-  console.log(`ReviewsPage ${restaurantId}`);
+
   return <ReviewsContainer id={restaurantId} />;
 };
 
