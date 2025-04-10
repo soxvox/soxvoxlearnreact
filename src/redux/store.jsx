@@ -1,3 +1,5 @@
+"use client";
+
 import { configureStore } from "@reduxjs/toolkit";
 import { dishSlice } from "./entities/dish/slice";
 import { cartSlice } from "./entities/cart/slice";

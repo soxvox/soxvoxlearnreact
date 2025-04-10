@@ -1,7 +1,9 @@
 "use client";
 
+import Link from "next/link";
+
 const RootError = () => {
-  return <div>root error</div>;
+  return <Link href="/">home page</Link>;
 };
 
 export default RootError;

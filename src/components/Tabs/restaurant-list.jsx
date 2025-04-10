@@ -1,9 +1,8 @@
 import { RestaurantTabContainer } from "./restaurant-tab-container";
 import { Tabs } from "./tabs";
-import { Outlet } from "react-router";
 import { useGetRestaurantsQuery } from "../../redux/services/api";
 
-export const RestaurantList = () => {
+export const RestaurantList = ({ children }) => {
   const { data, isLoading, isError } = useGetRestaurantsQuery();
 
   if (isLoading) {
@@ -18,14 +17,10 @@ export const RestaurantList = () => {
     <>
       <Tabs>
         {data.map(({ id, name }) => (
-          <RestaurantTabContainer
-            key={id}
-            to={`/restaurants/${id}`}
-            name={name}
-          />
+          <RestaurantTabContainer key={id} id={id} name={name} />
         ))}
       </Tabs>
-      <Outlet />
+      {children}
     </>
   );
 };

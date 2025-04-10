@@ -1,8 +1,7 @@
-import { useParams } from "react-router";
+"use client";
+
 import { DishContainer } from "../Menu/dish-container";
 
-export const DishPage = () => {
-  const { dishId } = useParams();
-
+export const DishPage = ({ dishId }) => {
   return <DishContainer id={dishId} />;
 };

@@ -1,3 +1,5 @@
+"use client";
+
 import { useState, useEffect, use } from "react";
 import styles from "./scroll-progress-bar.module.css";
 import classNames from "classnames";

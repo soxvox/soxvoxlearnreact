@@ -1,17 +1,20 @@
+"use client";
+
 import { Header } from "../Header/header";
 import { Cart } from "../Cart/cart";
 import styles from "./layout.module.css";
-import { Outlet } from "react-router";
+import { ThemeContext } from "../ThemeContext/theme-context";
+import { UserContext } from "../UserContext/user-context";
 
-export const Layout = ({ title }) => {
+export const Layout = ({ children, title }) => {
   return (
-    <div>
-      <Header title={title} />
-      <section className={styles.content}>
-        <Outlet />
-      </section>
-      <Cart />
-      <footer>footer</footer>
-    </div>
+    <ThemeContext>
+      <UserContext>
+        <Header title={title} />
+        <section className={styles.content}>{children}</section>
+        <Cart />
+        <footer>footer</footer>
+      </UserContext>
+    </ThemeContext>
   );
 };

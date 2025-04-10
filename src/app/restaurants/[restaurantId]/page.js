@@ -1,7 +1,9 @@
+import { redirect } from "next/navigation";
+
 const RestaurantPage = async ({ params }) => {
   const { restaurantId } = await params;
 
-  return <div>RestaurantPage - {restaurantId}</div>;
+  redirect(`/restaurants/${restaurantId}/menu`);
 };
 
 export default RestaurantPage;

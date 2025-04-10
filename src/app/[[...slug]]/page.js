@@ -1,7 +1,7 @@
-import { ClientOnlyApp } from "./app";
+import { HomePage } from "../../components/pages/home-page";
 
 const Page = () => {
-  return <ClientOnlyApp />;
+  return <HomePage />;
 };
 
 export default Page;
