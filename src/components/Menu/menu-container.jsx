@@ -1,3 +1,5 @@
+"use client";
+
 import { Menu } from "./menu";
 import { useGetMenuByRestaurantIdQuery } from "../../redux/services/api";
 

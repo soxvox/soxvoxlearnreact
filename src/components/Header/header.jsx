@@ -17,7 +17,7 @@ export const Header = ({ title }) => {
       })}
     >
       <div>
-        <h1 className={styles.h1}>{title}</h1>
+        <h1 className={styles.h1}>{title ?? "--"}</h1>
         <ToggleTheme />
         <UserAuth />
       </div>
