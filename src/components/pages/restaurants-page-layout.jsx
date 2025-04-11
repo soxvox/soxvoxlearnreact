@@ -3,7 +3,7 @@
 import { RestaurantTabContainer } from "../Tabs/restaurant-tab-container";
 import { useGetRestaurantsQuery } from "../../redux/services/api";
 
-export const RestaurantsPage = ({ children }) => {
+export const RestaurantsPageLayout = ({ children }) => {
   const { data: restaurants, isLoading, isError } = useGetRestaurantsQuery();
 
   if (isLoading) {
